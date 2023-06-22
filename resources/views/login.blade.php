@@ -15,6 +15,23 @@
   <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition login-page">
+
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  {{ session('success')}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
+@if(session()->has('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  {{ session('error')}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
@@ -23,16 +40,6 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
-      @if(session()->has("loginError"))
-  <script>
-    swal({
-  title: "Login Failed!",
-  icon: "error",
-  button: "Oke",
-});
-  </script>
-@endif
 
       <form action="/login" method="post">
         @csrf
@@ -103,8 +110,6 @@
 <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js') }}"></script>
-<!-- alert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>

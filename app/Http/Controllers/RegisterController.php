@@ -9,7 +9,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('/register',[
+        return view('register',[
             'title' => 'register'
         ]);
     }
@@ -26,6 +26,8 @@ class RegisterController extends Controller
 
         User::create($validateData);
 
-        return redirect()->intended('/login');
+        $request->session()->flash('success', 'Registration success! Please login.');
+
+        return redirect('/login');
     }
 }
