@@ -18,8 +18,8 @@ class RegisterController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:50|unique:users',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:5|max:50'
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5|max:50|confirmed'
         ]);
 
         $validateData['password'] = bcrypt($validateData['password']);
@@ -28,6 +28,6 @@ class RegisterController extends Controller
 
         $request->session()->flash('success', 'Registration success! Please login.');
 
-        return redirect('/login');
+        return redirect()->intended('/login');
     }
 }
