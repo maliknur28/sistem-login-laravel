@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OnlineShop | Register</title>
+  <title>OnlineStore | {{ $title }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <p class="h1"><b>Online</b>Shop</p>
+      <p class="h1"><b>Online</b>Store</p>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>
