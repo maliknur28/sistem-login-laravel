@@ -11,7 +11,8 @@ class LoginController extends Controller
     public function create()
     {
         return view('login',[
-            "title" => "Login"
+            "app" => "OnlineStore",
+            "page" => "Login"
         ]);
     }
 
